@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cebu Trip Itinerary: Saekyung Condominium, Lapu-Lapu City</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF4F2;--card:#fff;--ink:#0B2E3A;--mute:#4C6A73;--line:#C5DAD6;--sea:#0E6E7E;--mango:#F2B632;--hib:#D8436F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#08222B;--card:#0F3340;--ink:#EAF4F2;--mute:#9DBDC4;--line:#1D4A58;--sea:#5CC3D2}}
+:root[data-theme="dark"]{--bg:#08222B;--card:#0F3340;--ink:#EAF4F2;--mute:#9DBDC4;--line:#1D4A58;--sea:#5CC3D2}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding:28px 18px 56px}
+h1{font-size:clamp(2rem,7vw,3.2rem);line-height:1.05;font-weight:800;margin:0 0 10px;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 22px;max-width:60ch}
+.tabs{display:inline-flex;background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:3px;margin-bottom:26px}
+.tabs button{font:inherit;font-weight:600;border:0;background:none;color:var(--ink);padding:9px 20px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--hib);outline-offset:2px}
+.day{background:var(--card);border:1px solid var(--line);border-left:8px solid var(--sea);border-radius:6px 18px 18px 6px;padding:18px 18px 8px;margin-bottom:18px}
+.day:nth-child(3n+2){border-left-color:var(--mango)}
+.day:nth-child(3n){border-left-color:var(--hib)}
+.day h2{margin:0 0 4px;font-size:1.35rem}
+.day .theme{color:var(--mute);font-size:.92rem;margin:0 0 12px}
+ul{list-style:none;margin:0;padding:0}
+li{display:grid;grid-template-columns:70px 34px 1fr;gap:10px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.ic{width:34px;height:34px;color:var(--sea)}.ic *{vector-effect:non-scaling-stroke}
+.cost{margin-top:6px;font-size:.88rem;background:var(--bg);border-radius:8px;padding:6px 10px}
+.cn{display:block;color:var(--mute);font-size:.78rem;margin-top:2px}
+.dayfoot{margin:6px 0 12px;padding-top:10px;border-top:2px solid var(--ink);font-size:.92rem}
+.dayfoot .dt{font-weight:800;font-size:1.05rem;margin-top:6px}
+.sum{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin:0 0 20px}
+.sum small{display:block;color:var(--mute);margin-top:4px}
+.gal{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ph{display:block;flex:1 1 180px;max-width:300px;text-decoration:none;color:var(--ink)}
+.ph img,.ph .fb{display:block;width:100%;height:130px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.ph .fb{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;background:linear-gradient(135deg,#BFE6EE,#CDEBDD);color:#0B2E3A;font-weight:600;font-size:.9rem}
+.ph:hover img,.ph:hover .fb{filter:brightness(1.06)}
+.ph small{display:block;color:var(--mute);font-size:.75rem;margin-top:2px}
+.map{font-size:.82rem;color:var(--sea);margin-left:8px;white-space:nowrap}
+.banner{display:block;width:100%;height:auto;border-radius:10px;margin:0 0 12px}
+.tips li{display:block}
+.t{font-weight:600;color:var(--sea);font-size:.9rem;padding-top:1px}
+.n{font-weight:600}
+.b{color:var(--mute);font-size:.92rem}
+.tips{background:var(--ink);color:var(--bg);border-radius:18px;padding:20px;margin-top:26px}
+.tips h2{margin:0 0 8px;font-size:1.2rem}
+.tips li{display:block;border-top:1px solid rgba(255,255,255,.18);padding:8px 0;font-size:.95rem}
+.tips li:first-child{border-top:0}
+footer{margin-top:22px;color:var(--mute);font-size:.85rem}
+@media print{.tabs{display:none}.day{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Cebu, from Mactan</h1>
+<p class="sub">Sept 23-28 plan with Saekyung Condominium, Lapu-Lapu City as your base. You land at 10:00 PM on Sept 23 and fly out at 6:00 AM on Sept 28, so you have four full days.</p>
+<div class="tabs" role="tablist" style="display:none">
+<button role="tab" id="t3" aria-selected="true">3 days</button>
+<button role="tab" id="t4" aria-selected="false">4 days</button>
+</div>
+<div class="sum"><div id="sum"></div><small>Prices are estimates per person, checked September 2026, and can change. Assumes 4 travelers sharing one car or van with driver. Fewer people means a higher transport cost each. Confirm fees on arrival and carry small bills.</small></div>
+<div id="out"></div>
+<section class="tips">
+<h2>Good to know</h2>
+<ul>
+<li><b>Late arrival:</b> Tell the condo about your 10:00 PM landing so someone can check you in. Pre-book Grab or use the airport taxi queue.</li>
+<li><b>Early flight:</b> For a 6:00 AM flight, leave the hotel by 3:30 AM. Book the ride the night before, and pack before you sleep on Sept 27.</li>
+<li><b>Getting around:</b> Grab works in Mactan and Cebu City. For the Oslob day, hire a private van or car with a driver and confirm the rate first.</li>
+<li><b>Traffic:</b> Bridges into Cebu City are slow from 7-9 AM and 5-7 PM.</li>
+<li><b>Oslob day:</b> About 6 hours of driving round trip. Swap in Moalboal if you want a shorter day.</li>
+<li><b>Book ahead:</b> Island hopping boats and Kawasan canyoneering, especially on weekends and holidays.</li>
+<li><b>Closed days:</b> Tumalog Falls is closed on the 2nd Wednesday of each month and Kawasan Falls on the 3rd Wednesday. Avoid those days for the Oslob trip.</li>
+<li><b>Weather:</b> Rain can cancel boat trips, so check the forecast the day before.</li>
+</ul>
+</section>
+<footer>Times are suggestions. Adjust to your flight and pace. Photos load from Wikipedia when you are online. If a photo does not load, tap its box to see photos on Google.</footer>
+</div>
+<script>
+var S=function(t,n,b,note,pairs){return{t:t,n:n,b:b||"",note:note||"",c:pairs||[]}};
+var shrine=S("8:00 AM","Lapu-Lapu Shrine & Mactan Shrine","Battle site, close to your hotel.","Usually free or a small donation.");
+var cross=[S("10:00 AM","Magellan's Cross & Basilica del Santo Niño","Cebu City's best-known heritage spots.","Free. Donations welcome."),S("11:30 AM","Fort San Pedro","Spanish-era fort, a short walk away.","Entrance about ₱30 (some sources say up to ₱60).",[["Entrance",30]]),S("12:30 PM","Lunch: Cebu lechon","Try Rico's or Zubuchon.","Meal estimate.",[["Food",350]])];
+var oslob=[S("3:00 AM","Leave for Oslob","About 3 hours south.","Van cost is counted in the day's transport."),S("6:00 AM","Whale shark watching, Oslob","Book early to beat crowds.","Watching fee ₱1,000 (some sources list ₱500 for locals). Snorkel gear rental and photos are about ₱500 each, extra.",[["Activity",1000]]),S("9:30 AM","Tumalog Falls","","Entrance ₱50. Closed on the 2nd Wednesday of each month.",[["Entrance",50]]),S("11:30 AM","Lunch in Oslob or Badian","","Meal estimate.",[["Food",300]]),S("1:00 PM","Kawasan Falls, Badian","Swim in the turquoise pools.","Entrance ₱200 plus life jacket ₱50. Bamboo raft ₱300 is optional. Closed on the 3rd Wednesday of each month.",[["Entrance",250]]),S("4:00 PM","Back to Mactan","Arrive around 7 PM.","Included in the day's transport.")];
+var pasa=function(t){return S(t,"Pasalubong shopping","Dried mangoes, otap and more.","Shopping budget. Spend as much or as little as you like.",[["Shopping",1000]])};
+var hop=function(t,b){return S(t,"Island hopping: Nalusuan & Hilutungan",b,"Joiner tour about ₱1,500-2,500, often with lunch. Island fees are ₱150-300 each (Hilutungan about ₱150, Nalusuan about ₱300). Ask if they are bundled.",[["Tour",2000],["Eco fee",450]])};
+var D={
+4:[{h:"Sept 23",th:"Arrival night",tr:[100,"Grab or airport taxi to the hotel, about ₱400, shared by 4"],s:[S("10:00 PM","Land at Mactan-Cebu Airport","Collect bags, then book Grab or join the airport taxi queue.","Airport taxi or Grab is usually about ₱300-500 to Lapu-Lapu City. Counted in the day's transport."),S("11:00 PM","Check in at the hotel (Saekyung Condominium)","Tell the front desk or your host about the late arrival ahead of time.","Free. Confirm late check-in first.")]},
+
+{h:"Sept 24",th:"Mactan at an easy pace",tr:[150,"Grab rides within Mactan, shared"],s:[shrine,hop("9:30 AM","Snorkeling and beach time."),S("1:00 PM","Seafood lunch in Mactan","","Meal estimate.",[["Food",400]]),S("2:30 PM","Rest and swim","","Free if your condo pool or a public beach is available."),S("5:00 PM","Sunset at Punta Engaño","","Free public viewing. Resort access fees may apply.")]},
+{h:"Sept 25",th:"Cebu City and hills",tr:[1000,"Car or van with driver, about ₱4,000 for 8 hours, shared by 4"],s:[S("9:00 AM","Magellan's Cross & Basilica del Santo Niño","","Free. Donations welcome."),S("10:30 AM","Fort San Pedro","","Entrance about ₱30 (some sources say up to ₱60).",[["Entrance",30]]),S("12:00 PM","Lunch: Cebu lechon","Rico's or Zubuchon are popular choices.","Meal estimate.",[["Food",350]]),S("2:00 PM","Temple of Leah & Taoist Temple","","Temple of Leah about ₱150 (older sources say ₱50). Taoist Temple is free.",[["Entrance",150]]),S("4:00 PM","Sirao Flower Garden or Tops Lookout","Pick one. Tops is best at sunset.","Sirao about ₱100-120. Tops Lookout about ₱100.",[["Entrance",120]]),S("7:00 PM","Dinner at Cebu IT Park","","Meal estimate.",[["Food",400]])]},
+{h:"Sept 26",th:"South Cebu: whale sharks and waterfalls",tr:[2000,"Van with driver for Oslob and Kawasan, about ₱8,000 round trip, shared by 4"],s:oslob},
+{h:"Sept 27",th:"Slow day, souvenirs and early night",tr:[200,"Grab rides for shopping, spa and airport, shared"],s:[S("8:30 AM","Late breakfast","Recover from Day 3.","Meal estimate.",[["Food",200]]),pasa("10:30 AM"),S("12:30 PM","Last lunch in Mactan","","Meal estimate.",[["Food",350]]),S("2:30 PM","Spa or massage","","Massage about ₱500-800 per hour.",[["Massage",600]]),S("5:30 PM","Early dinner near the hotel","Keep it light and head back early.","Meal estimate.",[["Food",350]]),S("7:30 PM","Pack and sleep early","Your alarm is at 2:45 AM for the 6:00 AM flight.")]},
+{h:"Sept 28",th:"Early departure",tr:[100,"Grab to the airport, about ₱400, shared by 4"],s:[S("2:45 AM","Wake up and final check","Check the room. Keep passports and tickets handy.","Free."),S("3:30 AM","Grab to Mactan-Cebu Airport","Book the ride the night before. The trip takes about 15-20 minutes.","Counted in the day's transport."),S("4:00 AM","Check in at the airport","Arrive about 2 hours before a domestic flight. International flights need 3 hours, so leave earlier.","Free."),S("6:00 AM","Flight departs")]}]
+};
+function esc(x){return x.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+
+var P={
+cross:'<path d="M20 4v32M11 13h18"/>',
+boat:'<path d="M6 24h28l-4 8H10zM20 6v18M20 8l10 14H20"/><path d="M4 36c4-3 8 3 12 0s8 3 12 0 8 3 8 0"/>',
+whale:'<path d="M4 22c6-8 22-8 28 0-6 8-22 8-28 0zM32 22l5-6v12z"/><circle cx="12" cy="20" r="1"/><circle cx="18" cy="24" r="1"/><circle cx="24" cy="20" r="1"/>',
+falls:'<path d="M6 8h28M12 8v18M18 8v18M24 8v18M30 8v18"/><ellipse cx="20" cy="31" rx="15" ry="4"/>',
+temple:'<path d="M8 14h24L20 6zM11 24h18l-9-6zM14 34h12V24M6 34h28"/>',
+sun:'<path d="M9 28a11 11 0 0 1 22 0M4 28h32M8 34h24M20 6v4M8 12l3 3M32 12l-3 3"/>',
+food:'<path d="M6 22h28a14 14 0 0 1-28 0zM14 8c-2 3 2 4 0 7M22 8c-2 3 2 4 0 7"/>',
+bag:'<path d="M9 14h22l2 22H7zM14 14v-3a6 6 0 0 1 12 0v3"/>',
+spa:'<path d="M20 32c-8-3-12-10-12-16 6 0 10 4 12 10 2-6 6-10 12-10 0 6-4 13-12 16zM20 26V10"/>',
+plane:'<path d="M4 22l30-14-6 22-8-6-6 6v-8zM14 22l14-10"/>',
+shrine:'<path d="M20 4l4 6h-8zM16 10v22M24 10v22M10 32h20M8 36h24"/>',
+flower:'<circle cx="20" cy="20" r="4"/><circle cx="20" cy="9" r="4"/><circle cx="20" cy="31" r="4"/><circle cx="9" cy="20" r="4"/><circle cx="31" cy="20" r="4"/>',
+fort:'<path d="M6 34V14h5v4h4v-4h4v4h4v-4h4v4h4v-4h3v20zM17 34v-8h6v8"/>',
+car:'<path d="M5 26l4-10h22l4 10v6H5zM5 26h30"/><circle cx="12" cy="32" r="3"/><circle cx="28" cy="32" r="3"/>',
+pin:'<path d="M20 36s-11-11-11-19a11 11 0 0 1 22 0c0 8-11 19-11 19z"/><circle cx="20" cy="17" r="4"/>'};
+function icon(n){
+var k=/Cross|Basilica/.test(n)?"cross":/Fort/.test(n)?"fort":/Shrine/.test(n)?"shrine":/Island/.test(n)?"boat":/Whale/.test(n)?"whale":/Falls/.test(n)?"falls":/Temple/.test(n)?"temple":/Sunset|swim|Rest/.test(n)?"sun":/Lunch|Dinner|breakfast|lechon|Seafood/i.test(n)?"food":/Pasalubong/.test(n)?"bag":/Spa/.test(n)?"spa":/Airport/.test(n)?"plane":/Sirao|Tops/.test(n)?"flower":/Oslob|Back to/.test(n)?"car":"pin";
+return '<svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+P[k]+'</svg>'}
+var W='<path d="M0 88q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0V110H0z" fill="#0E6E7E"/>';
+var B={
+sea:'<rect width="720" height="110" fill="#BFE6EE"/><circle cx="590" cy="52" r="24" fill="#F2B632"/><rect y="70" width="720" height="40" fill="#1F93A5"/>'+W+'<path d="M180 66h70l-10 16h-50zM212 40v26M214 42l22 22h-22z" fill="#fff" stroke="#0B2E3A" stroke-width="2"/>',
+falls:'<rect width="720" height="110" fill="#CDEBDD"/><path d="M0 110V50q90-40 190-10t190 0 190-20 150 30v60z" fill="#2E8B57"/><path d="M330 30h60l-8 60h-44z" fill="#fff" opacity=".9"/><ellipse cx="360" cy="96" rx="70" ry="10" fill="#38B6C6"/>',
+city:'<rect width="720" height="110" fill="#F9DDB0"/><circle cx="130" cy="48" r="22" fill="#F2B632"/><path d="M0 110V80h60V60h40v20h60V70h50v40zM420 110V60l40-30 40 30v50zM520 110V70h60V40l20-16 20 16v70zM640 110V80h80v30z" fill="#0B2E3A"/><path d="M300 110V50M282 68h36" stroke="#0B2E3A" stroke-width="8"/>',
+plane:'<rect width="720" height="110" fill="#BFE6EE"/><ellipse cx="140" cy="70" rx="60" ry="14" fill="#fff"/><ellipse cx="560" cy="34" rx="50" ry="12" fill="#fff"/><path d="M300 60l120-34-30 44-18-8-22 20v-16z" fill="#D8436F"/>'};
+function banner(t){
+var k=/whale|waterfall/i.test(t)?"falls":/Island|Mactan at/i.test(t)?"sea":/departure|arrival/i.test(t)?"plane":"city";
+return '<svg class="banner" viewBox="0 0 720 110" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: '+esc(t)+'">'+B[k]+'</svg>'}
+
+var R=[
+[/Cross|Basilica/,[["Magellan's Cross"],["Basilica del Santo Niño de Cebu","Basilica Minore del Santo Niño"]]],
+[/Fort/,[["Fort San Pedro Cebu","Fort San Pedro"]]],
+[/Shrine/,[["Mactan Shrine","Lapu-Lapu Shrine","Lapu-Lapu City"]]],
+[/Island hopping/,[["Nalusuan Island"],["Hilutungan Island","Olango Island"]]],
+[/Whale/,[["Oslob whale shark","Whale shark","Oslob, Cebu"]]],
+[/Tumalog/,[["Tumalog Falls"]]],
+[/Kawasan/,[["Kawasan Falls"]]],
+[/Temple of Leah/,[["Temple of Leah"],["Taoist Temple Cebu","Taoist temple"]]],
+[/Sirao|Tops/,[["Sirao Garden"],["Tops Lookout Cebu","Busay, Cebu City"]]],
+[/lechon/i,[["Cebu lechon","Lechon"]]],
+[/IT Park|Ayala/,[["Cebu IT Park","Cebu Business Park"],["Ayala Center Cebu"]]],
+[/Pasalubong/,[["Dried mango","Cebu dried mangoes"],["Otap"]]],
+[/Punta|Sunset/,[["Punta Engaño","Mactan Island"]]],
+[/Seafood|Last lunch/,[["Kinilaw","Philippine seafood","Grilled fish"]]],
+[/breakfast/i,[["Tapsilog","Filipino breakfast"]]],
+[/Spa/,[["Hilot","Massage"]]],
+[/Airport/,[["Mactan–Cebu International Airport"]]],
+[/Leave for Oslob|Oslob or Badian/,[["Oslob, Cebu"],["Badian, Cebu"]]],
+[/Back to Mactan/,[["Marcelo Fernan Bridge","Mactan–Mandaue Bridge"]]],
+[/Rest|swim|hotel/,[["Mactan Island","Lapu-Lapu City"]]]];
+function items(n){for(var i=0;i<R.length;i++)if(R[i][0].test(n))return R[i][1];return[["Cebu"]]}
+function qa(x){return esc(x).replace(/"/g,"&quot;")}
+var cache={};
+function fetchImg(q){
+return cache[q]=cache[q]||fetch("https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=6&gsrsearch="+encodeURIComponent(q)+"&prop=pageimages|info&piprop=thumbnail&pithumbsize=500&inprop=url").then(function(r){return r.json()}).then(function(j){
+var pg=Object.values((j.query||{}).pages||{}).filter(function(x){return x.thumbnail}).sort(function(a,b){return a.index-b.index})[0];
+return pg?{img:pg.thumbnail.source,url:pg.fullurl,t:pg.title}:null})}
+function get(alts,i){
+if(i>=alts.length)return Promise.resolve(null);
+return fetchImg(alts[i]).then(function(o){return o||get(alts,i+1)}).catch(function(){return get(alts,i+1)})}
+function photos(){
+document.querySelectorAll(".gal").forEach(function(g){
+JSON.parse(g.getAttribute("data-q")).forEach(function(alts){
+var a=document.createElement("a");a.className="ph";a.target="_blank";a.rel="noopener";
+a.href="https://www.google.com/search?tbm=isch&q="+encodeURIComponent(alts[0]+" Cebu");
+a.innerHTML='<span class="fb">'+esc(alts[0])+'</span><small>Tap for photos</small>';
+g.appendChild(a);
+get(alts,0).then(function(o){
+if(!o||!a.isConnected)return;
+a.href=o.url;
+a.innerHTML='<img alt="Photo: '+qa(o.t)+'"><small>'+esc(o.t)+' (Wikipedia)</small>';
+a.querySelector("img").src=o.img}).catch(function(){})})})}
+function peso(n){return "₱"+n.toLocaleString("en-US")}
+function render(k){
+var h="",grand=0;D[k].forEach(function(d){
+var tot=d.tr[0];d.s.forEach(function(x){x.c.forEach(function(p){tot+=p[1]})});grand+=tot;
+h+='<article class="day">'+banner(d.th)+'<h2>'+d.h+'</h2><p class="theme">'+esc(d.th)+'</p><ul>';
+d.s.forEach(function(s){var it=items(s.n);
+var cost=s.c.length?s.c.map(function(p){return p[0]+" <b>"+peso(p[1])+"</b>"}).join(" · "):"<b>Free</b>";
+h+='<li><span class="t">'+esc(s.t)+'</span>'+icon(s.n)+'<span><span class="n">'+esc(s.n)+'</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it[0][0]+" Cebu")+'">Map</a>'+(s.b?'<br><span class="b">'+esc(s.b)+'</span>':'')+'<div class="cost">'+cost+(s.note?'<span class="cn">'+esc(s.note)+'</span>':'')+'</div><div class="gal" data-q="'+qa(JSON.stringify(it))+'"></div></span></li>'});
+h+='</ul><div class="dayfoot"><div>Transport for the day: <b>'+peso(d.tr[0])+'</b> per person<span class="cn">'+esc(d.tr[1])+'</span></div><div class="dt">Day total: about '+peso(tot)+' per person</div></div></article>'});
+document.getElementById("sum").innerHTML='<b>Trip total: about '+peso(grand)+' per person</b> for Sept 23-28, without hotel and airfare.';
+document.getElementById("out").innerHTML=h;photos();
+["3","4"].forEach(function(n){document.getElementById("t"+n).setAttribute("aria-selected",String(n==k))});
+try{localStorage.setItem("cebuTab",k)}catch(e){}
+}
+document.getElementById("t3").onclick=function(){render(3)};
+document.getElementById("t4").onclick=function(){render(4)};
+var st=3;try{st=+localStorage.getItem("cebuTab")||3}catch(e){}
+render(4);
+</script>
+</body>
+</html>
