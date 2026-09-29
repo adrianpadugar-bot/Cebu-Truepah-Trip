@@ -55,6 +55,33 @@ li{display:grid;grid-template-columns:70px 34px 1fr;gap:10px;align-items:start;p
 .tips li{display:block;border-top:1px solid rgba(255,255,255,.18);padding:8px 0;font-size:.95rem}
 .tips li:first-child{border-top:0}
 footer{margin-top:22px;color:var(--mute);font-size:.85rem}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-wrap:break-word;overflow-x:hidden}
+li>span:last-child{min-width:0}
+.map{display:inline-block;padding:4px 6px;margin-left:4px}
+@media (max-width:600px){
+.wrap{padding:18px 14px 40px}
+h1{font-size:clamp(1.8rem,9vw,2.4rem)}
+.sub{font-size:.95rem;margin-bottom:16px}
+.sum{padding:10px 12px;font-size:.95rem}
+.sum small{font-size:.78rem}
+.day{padding:14px 12px 4px;border-radius:6px 14px 14px 6px;border-left-width:6px;margin-bottom:14px}
+.day h2{font-size:1.2rem}
+.day li{grid-template-columns:34px 1fr;grid-template-areas:"ic t" "c c";column-gap:10px;row-gap:6px;align-items:center;padding:12px 0}
+.day li>.ic{grid-area:ic}
+.day li>.t{grid-area:t;font-size:.95rem;padding-top:0}
+.day li>span:last-child{grid-area:c}
+.n{font-size:1.02rem}
+.map{padding:8px 10px;margin-left:2px}
+.tv,.eat,.hot,.cost{font-size:.9rem;padding:6px 10px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ph{max-width:none;flex:none}
+.ph img,.ph .fb{height:100px}
+.dayfoot{font-size:.92rem}
+.tips{padding:16px;border-radius:14px;margin-top:20px}
+.tips li{font-size:.92rem}
+}
+@media (max-width:360px){.gal{grid-template-columns:1fr}.ph img,.ph .fb{height:130px}}
 @media print{.tabs{display:none}.day{break-inside:avoid}}
 </style>
 </head>
