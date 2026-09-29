@@ -93,7 +93,7 @@ h1{font-size:clamp(1.8rem,9vw,2.4rem)}
 <button role="tab" id="t3" aria-selected="true">3 days</button>
 <button role="tab" id="t4" aria-selected="false">4 days</button>
 </div>
-<div class="sum"><div id="sum"></div><small>Prices are estimates per person, checked September 2026, and can change. Assumes 4 travelers sharing one car or van with driver. Fewer people means a higher transport cost each. Confirm fees on arrival and carry small bills. Distances and times are estimates for a private car in normal traffic, measured from the previous stop. Food picks were checked on Sept 29, 2026 from the Michelin Guide Cebu 2026 lists and restaurant listings, so confirm hours and addresses before you go.</small></div>
+<div class="sum"><div id="sum"></div><small>Prices are estimates per person, checked September 2026, and can change. Assumes 4 travelers sharing one car or van with driver. Fewer people means a higher cost per person.</small></div>
 <div id="out"></div>
 <section class="tips">
 <h2>Good to know</h2>
@@ -113,21 +113,19 @@ h1{font-size:clamp(1.8rem,9vw,2.4rem)}
 <script>
 var S=function(t,n,b,note,pairs){return{t:t,n:n,b:b||"",note:note||"",c:pairs||[]}};
 var shrine=S("8:00 AM","Lapu-Lapu Shrine & Mactan Shrine","Battle site, close to your hotel.","Usually free or a small donation.");
-var cross=[S("10:00 AM","Magellan's Cross & Basilica del Santo Niño","Cebu City's best-known heritage spots.","Free. Donations welcome."),S("11:30 AM","Fort San Pedro","Spanish-era fort, a short walk away.","Entrance about ₱30 (some sources say up to ₱60).",[["Entrance",30]]),S("12:30 PM","Lunch: Cebu lechon","Try Rico's or Zubuchon.","Meal estimate.",[["Food",350]])];
-var oslob=[S("3:00 AM","Leave for Oslob","About 3 hours south.","Van cost is counted in the day's transport."),S("6:00 AM","Whale shark watching, Oslob","Book early to beat crowds.","Watching fee ₱1,000 (some sources list ₱500 for locals). Snorkel gear rental and photos are about ₱500 each, extra.",[["Activity",1000]]),S("9:30 AM","Tumalog Falls","","Entrance ₱50. Closed on the 2nd Wednesday of each month.",[["Entrance",50]]),S("11:30 AM","Lunch in Oslob or Badian","","Meal estimate.",[["Food",300]]),S("1:00 PM","Kawasan Falls, Badian","Swim in the turquoise pools.","Entrance ₱200 plus life jacket ₱50. Bamboo raft ₱300 is optional. Closed on the 3rd Wednesday of each month.",[["Entrance",250]]),S("4:00 PM","Back to Mactan","Arrive around 7 PM.","Included in the day's transport.")];
+var cross=[S("10:00 AM","Magellan's Cross & Basilica del Santo Niño","Cebu City's best-known heritage spots.","Free. Donations welcome."),S("11:30 AM","Fort San Pedro","Spanish-era fort, a short walk from downtown.","Free or small entry fee.")];
+var oslob=[S("3:00 AM","Leave for Oslob","About 3 hours south.","Van cost is counted in the day's transport."),S("6:00 AM","Whale shark watching, Oslob","Book early to beat crowds.","Watching fee ₱1,000-1,500 plus local environmental fees."),S("8:30 AM","Tumalog Falls","A quick stop for a waterfall view and photos.","Optional if time allows."),S("12:30 PM","Lunch in Oslob or Badian","Take a breather before the drive back.","Meal estimate.",[["Food",500]]),S("3:30 PM","Back to Mactan","Head back to your condo and rest.","Van cost is counted in the day's transport.")];
 var pasa=function(t){return S(t,"Pasalubong shopping","Dried mangoes, otap and more.","Shopping budget. Spend as much or as little as you like.",[["Shopping",1000]])};
-var hop=function(t,b){return S(t,"Island hopping: Nalusuan & Hilutungan",b,"Joiner tour about ₱1,500-2,500, often with lunch. Island fees are ₱150-300 each (Hilutungan about ₱150, Nalusuan about ₱300). Ask if they are bundled.",[["Tour",2000],["Eco fee",450]])};
+var hop=function(t,b){return S(t,"Island hopping: Nalusuan & Hilutungan",b,"Joiner tour about ₱1,500-2,500, often with lunch. Island fees are ₱150-300 each (Hilutungan about ₱150, Nalusuan about ₱200).",[["Boat tour",1800]])};
 var D={
-4:[{h:"Sept 23",th:"Arrival night",tr:[100,"Grab or airport taxi to the hotel, about ₱400, shared by 4"],s:[S("10:00 PM","Land at Mactan-Cebu Airport","Collect bags, then book Grab or join the airport taxi queue.","Airport taxi or Grab is usually about ₱300-500 to Lapu-Lapu City. Counted in the day's transport."),S("11:00 PM","Check in at the hotel (Saekyung Condominium)","Tell the front desk or your host about the late arrival ahead of time.","Free. Confirm late check-in first.")]},
-
-{h:"Sept 24",th:"Mactan at an easy pace",tr:[150,"Grab rides within Mactan, shared"],s:[shrine,hop("9:30 AM","Snorkeling and beach time."),S("1:00 PM","Seafood lunch in Mactan","","Meal estimate.",[["Food",400]]),S("2:30 PM","Rest and swim","","Free if your condo pool or a public beach is available."),S("5:00 PM","Sunset at Punta Engaño","","Free public viewing. Resort access fees may apply.")]},
-{h:"Sept 25",th:"Cebu City and hills",tr:[1000,"Car or van with driver, about ₱4,000 for 8 hours, shared by 4"],s:[S("9:00 AM","Magellan's Cross & Basilica del Santo Niño","","Free. Donations welcome."),S("10:30 AM","Fort San Pedro","","Entrance about ₱30 (some sources say up to ₱60).",[["Entrance",30]]),S("12:00 PM","Lunch: Cebu lechon","Rico's or Zubuchon are popular choices.","Meal estimate.",[["Food",350]]),S("2:00 PM","Temple of Leah & Taoist Temple","","Temple of Leah about ₱150 (older sources say ₱50). Taoist Temple is free.",[["Entrance",150]]),S("4:00 PM","Sirao Flower Garden or Tops Lookout","Pick one. Tops is best at sunset.","Sirao about ₱100-120. Tops Lookout about ₱100.",[["Entrance",120]]),S("7:00 PM","Dinner at Cebu IT Park","","Meal estimate.",[["Food",400]])]},
+4:[{h:"Sept 23",th:"Arrival night",tr:[100,"Grab or airport taxi to the hotel, about ₱400, shared by 4"],s:[S("10:00 PM","Land at Mactan-Cebu Airport","Collect bags, then book Grab or join the airport taxi queue.","Free.") ]},
+{h:"Sept 24",th:"Mactan at an easy pace",tr:[150,"Grab rides within Mactan, shared"],s:[shrine,hop("9:30 AM","Snorkeling and beach time."),S("1:00 PM","Seafood lunch in Mactan","","Meal estimate.",[["Food",500]])]},
+{h:"Sept 25",th:"Cebu City and hills",tr:[1000,"Car or van with driver, about ₱4,000 for 8 hours, shared by 4"],s:[S("9:00 AM","Magellan's Cross & Basilica del Santo Niño","","Free. Donations welcome."),S("11:30 AM","Fort San Pedro","","Free or small entry fee."),S("2:00 PM","Temple of Leah","Hilltop shrine and views.","Optional.",[["Entrance",200]]),S("5:00 PM","Dinner in Cebu City","","Meal estimate.",[["Food",500]])]},
 {h:"Sept 26",th:"South Cebu: whale sharks and waterfalls",tr:[2000,"Van with driver for Oslob and Kawasan, about ₱8,000 round trip, shared by 4"],s:oslob},
-{h:"Sept 27",th:"Slow day, souvenirs and early night",tr:[200,"Grab rides for shopping, spa and airport, shared"],s:[S("8:30 AM","Late breakfast","Recover from Day 3.","Meal estimate.",[["Food",200]]),pasa("10:30 AM"),S("12:30 PM","Last lunch in Mactan","","Meal estimate.",[["Food",350]]),S("2:30 PM","Spa or massage","","Massage about ₱500-800 per hour.",[["Massage",600]]),S("5:30 PM","Early dinner near the hotel","Keep it light and head back early.","Meal estimate.",[["Food",350]]),S("7:30 PM","Pack and sleep early","Your alarm is at 2:45 AM for the 6:00 AM flight.")]},
-{h:"Sept 28",th:"Early departure",tr:[100,"Grab to the airport, about ₱400, shared by 4"],s:[S("2:45 AM","Wake up and final check","Check the room. Keep passports and tickets handy.","Free."),S("3:30 AM","Grab to Mactan-Cebu Airport","Book the ride the night before. The trip takes about 15-20 minutes.","Counted in the day's transport."),S("4:00 AM","Check in at the airport","Arrive about 2 hours before a domestic flight. International flights need 3 hours, so leave earlier.","Free."),S("6:00 AM","Flight departs")]}]
+{h:"Sept 27",th:"Slow day, souvenirs and early night",tr:[150,"Grab rides for shopping and airport, shared"],s:[S("8:30 AM","Late breakfast","Recover from Day 3.","Meal estimate.",[["Food",200]]),pasa("10:30 AM"),S("1:00 PM","Rest and swim at the condo or beach","Keep the afternoon easy and pack for the morning flight.","Free or optional beach access."),S("6:30 PM","Early dinner near the hotel","Keep it simple before your 6:00 AM departure.","Meal estimate.",[["Food",300]]),S("8:30 PM","Final prep and early night","Charge devices, lay out clothes, and set your alarms.","Free.")]},
+{h:"Sept 28",th:"Early departure",tr:[100,"Grab to the airport, about ₱400, shared by 4"],s:[S("2:45 AM","Wake up and final check","Check the room. Keep passports and tickets handy.","Free."),S("3:30 AM","Grab to Mactan-Cebu Airport","Leave early to avoid traffic.","Ride cost is counted in the day's transport."),S("6:00 AM","Fly out","","Flight time.")]} 
 };
 function esc(x){return x.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
-
 var P={
 cross:'<path d="M20 4v32M11 13h18"/>',
 boat:'<path d="M6 24h28l-4 8H10zM20 6v18M20 8l10 14H20"/><path d="M4 36c4-3 8 3 12 0s8 3 12 0 8 3 8 0"/>',
@@ -145,44 +143,43 @@ fort:'<path d="M6 34V14h5v4h4v-4h4v4h4v-4h4v4h4v-4h3v20zM17 34v-8h6v8"/>',
 car:'<path d="M5 26l4-10h22l4 10v6H5zM5 26h30"/><circle cx="12" cy="32" r="3"/><circle cx="28" cy="32" r="3"/>',
 pin:'<path d="M20 36s-11-11-11-19a11 11 0 0 1 22 0c0 8-11 19-11 19z"/><circle cx="20" cy="17" r="4"/>'};
 function icon(n){
-var k=/Cross|Basilica/.test(n)?"cross":/Fort/.test(n)?"fort":/Shrine/.test(n)?"shrine":/Island/.test(n)?"boat":/Whale/.test(n)?"whale":/Falls/.test(n)?"falls":/Temple/.test(n)?"temple":/Sunset|swim|Rest/.test(n)?"sun":/Lunch|Dinner|breakfast|lechon|Seafood/i.test(n)?"food":/Pasalubong/.test(n)?"bag":/Spa/.test(n)?"spa":/Airport/.test(n)?"plane":/Sirao|Tops/.test(n)?"flower":/Oslob|Back to/.test(n)?"car":"pin";
+var k=/Cross|Basilica/.test(n)?"cross":/Fort/.test(n)?"fort":/Shrine/.test(n)?"shrine":/Island/.test(n)?"boat":/Whale/.test(n)?"whale":/Falls/.test(n)?"falls":/Temple/.test(n)?"temple":/Sunset|swim|Rest|hotel/.test(n)?"sun":/Food|lunch|breakfast|dinner/.test(n)?"food":/Shopping|Pasalubong/.test(n)?"bag":/Airport|flight/.test(n)?"plane":/massage|spa/i.test(n)?"spa":"pin";
 return '<svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+P[k]+'</svg>'}
-var W='<path d="M0 88q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0V110H0z" fill="#0E6E7E"/>';
+var W='<path d="M0 88q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0V110H0z" fill="#0E6E7E"/>';
 var B={
-sea:'<rect width="720" height="110" fill="#BFE6EE"/><circle cx="590" cy="52" r="24" fill="#F2B632"/><rect y="70" width="720" height="40" fill="#1F93A5"/>'+W+'<path d="M180 66h70l-10 16h-50zM212 40v26M214 42l22 22h-22z" fill="#fff" stroke="#0B2E3A" stroke-width="2"/>',
-falls:'<rect width="720" height="110" fill="#CDEBDD"/><path d="M0 110V50q90-40 190-10t190 0 190-20 150 30v60z" fill="#2E8B57"/><path d="M330 30h60l-8 60h-44z" fill="#fff" opacity=".9"/><ellipse cx="360" cy="96" rx="70" ry="10" fill="#38B6C6"/>',
-city:'<rect width="720" height="110" fill="#F9DDB0"/><circle cx="130" cy="48" r="22" fill="#F2B632"/><path d="M0 110V80h60V60h40v20h60V70h50v40zM420 110V60l40-30 40 30v50zM520 110V70h60V40l20-16 20 16v70zM640 110V80h80v30z" fill="#0B2E3A"/><path d="M300 110V50M282 68h36" stroke="#0B2E3A" stroke-width="8"/>',
-plane:'<rect width="720" height="110" fill="#BFE6EE"/><ellipse cx="140" cy="70" rx="60" ry="14" fill="#fff"/><ellipse cx="560" cy="34" rx="50" ry="12" fill="#fff"/><path d="M300 60l120-34-30 44-18-8-22 20v-16z" fill="#D8436F"/>'};
+sea:'<rect width="720" height="110" fill="#BFE6EE"/><circle cx="590" cy="52" r="24" fill="#F2B632"/><rect y="70" width="720" height="40" fill="#1F93A5"/>'+W+'<path d="M180 66h70l-10 16h-50zM212 40v26M220 26l10 14 10-14" fill="none" stroke="#fff" stroke-width="3"/>',
+falls:'<rect width="720" height="110" fill="#CDEBDD"/><path d="M0 110V50q90-40 190-10t190 0 190-20 150 30v60z" fill="#2E8B57"/><path d="M330 30h60l-8 60h-44z" fill="#fff" opacity=".9"/><ellipse cx="210" cy="90" rx="120" ry="20" fill="#5EBB8F" opacity=".35"/>',
+city:'<rect width="720" height="110" fill="#F9DDB0"/><circle cx="130" cy="48" r="22" fill="#F2B632"/><path d="M0 110V80h60V60h40v20h60V70h50v40zM420 110V60l40-30 40 30v50zM520 110V70h60V40l20-16 20 16v30h60v40z" fill="#D58A43" opacity=".5"/>',
+plane:'<rect width="720" height="110" fill="#BFE6EE"/><ellipse cx="140" cy="70" rx="60" ry="14" fill="#fff"/><ellipse cx="560" cy="34" rx="50" ry="12" fill="#fff"/><path d="M300 60l120-34-30 44-18-8-2 18-8-8-12 8 2-20-8-10z" fill="#0E6E7E" opacity=".7"/>'};
 function banner(t){
 var k=/whale|waterfall/i.test(t)?"falls":/Island|Mactan at/i.test(t)?"sea":/departure|arrival/i.test(t)?"plane":"city";
 return '<svg class="banner" viewBox="0 0 720 110" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: '+esc(t)+'">'+B[k]+'</svg>'}
-
 var R=[
-[/Cross|Basilica/,[["Magellan's Cross"],["Basilica del Santo Niño de Cebu","Basilica Minore del Santo Niño"]]],
-[/Fort/,[["Fort San Pedro Cebu","Fort San Pedro"]]],
-[/Shrine/,[["Mactan Shrine","Lapu-Lapu Shrine","Lapu-Lapu City"]]],
-[/Island hopping/,[["Nalusuan Island"],["Hilutungan Island","Olango Island"]]],
-[/Whale/,[["Oslob whale shark","Whale shark","Oslob, Cebu"]]],
-[/Tumalog/,[["Tumalog Falls"]]],
-[/Kawasan/,[["Kawasan Falls"]]],
-[/Temple of Leah/,[["Temple of Leah"],["Taoist Temple Cebu","Taoist temple"]]],
-[/Sirao|Tops/,[["Sirao Garden"],["Tops Lookout Cebu","Busay, Cebu City"]]],
-[/lechon/i,[["Cebu lechon","Lechon"]]],
-[/IT Park|Ayala/,[["Cebu IT Park","Cebu Business Park"],["Ayala Center Cebu"]]],
-[/Pasalubong/,[["Dried mango","Cebu dried mangoes"],["Otap"]]],
-[/Punta|Sunset/,[["Punta Engaño","Mactan Island"]]],
-[/Seafood|Last lunch/,[["Kinilaw","Philippine seafood","Grilled fish"]]],
-[/breakfast/i,[["Tapsilog","Filipino breakfast"]]],
-[/Spa/,[["Hilot","Massage"]]],
-[/Airport/,[["Mactan–Cebu International Airport"]]],
-[/Leave for Oslob|Oslob or Badian/,[["Oslob, Cebu"],["Badian, Cebu"]]],
-[/Back to Mactan/,[["Marcelo Fernan Bridge","Mactan–Mandaue Bridge"]]],
-[/Rest|swim|hotel/,[["Mactan Island","Lapu-Lapu City"]]]];
-function items(n){for(var i=0;i<R.length;i++)if(R[i][0].test(n))return R[i][1];return[["Cebu"]]}
+[/Cross|Basilica/,[['Magellan\'s Cross'],['Basilica del Santo Niño de Cebu','Basilica Minore del Santo Niño']]],
+[/Fort/,[['Fort San Pedro Cebu','Fort San Pedro']]],
+[/Shrine/,[['Mactan Shrine','Lapu-Lapu Shrine','Lapu-Lapu City']]],
+[/Island hopping/,[['Nalusuan Island'],['Hilutungan Island','Olango Island']]],
+[/Whale/,[['Oslob whale shark','Whale shark','Oslob, Cebu']]],
+[/Tumalog/,[['Tumalog Falls']]],
+[/Kawasan/,[['Kawasan Falls']]],
+[/Temple of Leah/,[['Temple of Leah'],['Taoist Temple Cebu','Taoist temple']]],
+[/Sirao|Tops/,[['Sirao Garden'],['Tops Lookout Cebu','Busay, Cebu City']]],
+[/lechon/i,[['Cebu lechon','Lechon']]],
+[/IT Park|Ayala/,[['Cebu IT Park','Cebu Business Park'],['Ayala Center Cebu']]],
+[/Pasalubong/,[['Dried mango','Cebu dried mangoes'],['Otap']]],
+[/Punta|Sunset/,[['Punta Engaño','Mactan Island']]],
+[/Seafood|Last lunch/,[['Kinilaw','Philippine seafood','Grilled fish']]],
+[/breakfast/i,[['Tapsilog','Filipino breakfast']]],
+[/Spa/,[['Hilot','Massage']]],
+[/Airport/,[['Mactan–Cebu International Airport']]],
+[/Leave for Oslob|Oslob or Badian/,[['Oslob, Cebu'],['Badian, Cebu']]],
+[/Back to Mactan/,[['Marcelo Fernan Bridge','Mactan–Mandaue Bridge']]],
+[/Rest|swim|hotel/,[['Mactan Island','Lapu-Lapu City']]]];
+function items(n){for(var i=0;i<R.length;i++)if(R[i][0].test(n))return R[i][1];return[['Cebu']]}
 function qa(x){return esc(x).replace(/"/g,"&quot;")}
 var cache={};
 function fetchImg(q){
-return cache[q]=cache[q]||fetch("https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=6&gsrsearch="+encodeURIComponent(q)+"&prop=pageimages|info&piprop=thumbnail&pithumbsize=500&inprop=url").then(function(r){return r.json()}).then(function(j){
+return cache[q]=cache[q]||fetch("https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=6&gsrsearch="+encodeURIComponent(q)+"&prop=pageimages|info&piprop=thumbnail&pilimit=1&inprop=url").then(function(r){return r.json()}).then(function(j){
 var pg=Object.values((j.query||{}).pages||{}).filter(function(x){return x.thumbnail}).sort(function(a,b){return a.index-b.index})[0];
 return pg?{img:pg.thumbnail.source,url:pg.fullurl,t:pg.title}:null})}
 function get(alts,i){
@@ -200,22 +197,21 @@ if(!o||!a.isConnected)return;
 a.href=o.url;
 a.innerHTML='<img alt="Photo: '+qa(o.t)+'"><small>'+esc(o.t)+' (Wikipedia)</small>';
 a.querySelector("img").src=o.img}).catch(function(){})})})}
-
 var TV={
 "Sept 23":[0,[5,"10-20 min","the airport"]],
-"Sept 24":[[8,"10-15 min","the hotel"],[9,"15-25 min","the Shrine to the boat port (Punta Engaño or Cordova)","Then about 30 min by boat (about 7 km) to the first island."],[10,"15-25 min","the port to Maribago"],[6,"10-20 min","Maribago back to the hotel"],[14,"25-35 min","the hotel","Then back to the hotel: about 14 km, 25-35 min.",14]],
-"Sept 25":[[18,"30-45 min","the hotel, over the Mactan bridges (allow more in rush hour)"],[0.7,"5 min walk","the Basilica"],[4,"10-25 min","Fort San Pedro, depending on the restaurant"],[12,"30-45 min","downtown, uphill to Busay"],[6,"10-20 min","Temple of Leah"],[10,"25-40 min","Busay, longer in evening traffic","Then back to Mactan: about 20 km, 30-45 min.",20]],
-"Sept 26":[0,[130,"3-3.5 hr","Mactan to Tan-awan, Oslob (arrive around 6:00-6:30 AM)"],[8,"10-25 min","Tan-awan"],[5,"10-20 min","Tumalog"],[50,"about 1.5 hr","Oslob"],[118,"3-3.5 hr","Badian to Mactan, longer with traffic"]],
-"Sept 27":[[2,"5-15 min","the hotel"],[7,"10-20 min","breakfast in Mactan","Taboan Market in Cebu City is about 20 km, 30-45 min away."],[4,"10-20 min","the shops"],[3,"5-20 min","lunch"],[3,"10-15 min","the spa"],[2,"5-10 min","dinner back to the hotel"]],
+"Sept 24":[[8,"10-15 min","the hotel"],[9,"15-25 min","the Shrine to the boat port (Punta Engaño or Cordova)","Then about 30 min by boat (about 7 km) to the first island."],[10,"15-25 min","the boat ride to island hopping"]],
+"Sept 25":[[18,"30-45 min","the hotel, over the Mactan bridges (allow more in rush hour)"],[0.7,"5 min walk","the Basilica"],[4,"10-25 min","Fort San Pedro, depending on the restaurant"],[12,"30-45 min","the hilltop sights"]],
+"Sept 26":[0,[130,"3-3.5 hr","Mactan to Tan-awan, Oslob (arrive around 6:00-6:30 AM)"],[8,"10-25 min","Tan-awan"],[5,"10-20 min","Tumalog"],[50,"about 1.5 hr","Oslob"],[118,"3-3.5 hr","Badian to Mactan"]],
+"Sept 27":[[2,"5-15 min","the hotel"],[7,"10-20 min","breakfast in Mactan"],[4,"10-20 min","the shops"],[3,"5-20 min","lunch"],[3,"10-15 min","the condo or beach"]],
 "Sept 28":[0,[5,"10-20 min at 3:30 AM with little traffic","the hotel to the airport"]]};
-var TT={"Sept 23":"about 15-20 min","Sept 24":"about 1.5-2 hours of short rides, plus a 30-minute boat ride","Sept 25":"about 2.5-3.5 hours","Sept 26":"about 8-9 hours round trip","Sept 27":"under 1 hour","Sept 28":"about 20 min"};
+var TT={"Sept 23":"about 15-20 min","Sept 24":"about 1.5-2 hours of short rides, plus a 30-minute boat ride","Sept 25":"about 2.5-3.5 hours","Sept 26":"about 8-9 hours round trip","Sept 27":"under 1 hour of movement","Sept 28":"about 10-20 min"};
 function km(k){return (k%1?k.toFixed(1):k)+" km"}
 var FD=[
 [/Shrine/,"Manna STK Food House is on Punta Engaño Road by the Shrine (Cebuano seafood). Local carinderias and grill stalls nearby serve meals for about ₱80-150."],
-[/Island hopping/,"Lunch is often included on the boat tour, so ask before you book. Olango Island has seafood restaurants on stilts, so pick one with fixed prices. Seafood restaurants near the Cordova and Punta Engaño ports are good after the trip."],
-[/Seafood lunch|Last lunch|Early dinner/,"Try Maribago Grill or Fiesta Bay Seafood Restaurant. In Mactan Newtown, paluto spots let you pick market-fresh seafood and pay a cooking fee (about ₱500-1,000 for two)."],
+[/Island hopping/,"Lunch is often included on the boat tour, so ask before you book. Olango Island has seafood restaurants on stilts, so pick one with fixed prices. Seafood restaurants near the Cordova port also work."],
+[/Seafood lunch|Last lunch|Early dinner/,"Try Maribago Grill or Fiesta Bay Seafood Restaurant. In Mactan Newtown, paluto spots let you pick market-fresh seafood and pay a cooking fee (about ₱500-1,000)."],
 [/Punta|Sunset/,"The Punta Engaño Road resort strip has Cowrie Cove (seafood, Shangri-La) and Hola España (Spanish, open daily by its listing). Resort dining runs about ₱800-1,500 per person."],
-[/Cross|Basilica/,"Colon Street is a short walk away: pungko-pungko street food by day, BBQ and night-market snacks at night. Larsian BBQ at Fuente Osmeña, a short ride away, is known for grilled meat and puso."],
+[/Cross|Basilica/,"Colon Street is a short walk away: pungko-pungko street food by day, BBQ and night-market snacks at night. Larsian BBQ at Fuente Osmeña, a short ride away, is known for grilled meats."],
 [/Fort/,"Plaza Independencia and Colon Street are a short walk. Look for street food and lechon in the downtown area."],
 [/lechon/i,"Popular lechon spots: Rico's Lechon, House of Lechon, Tatang's Lechon Belly, Ayer's and Zubuchon."],
 [/Temple of Leah/,"Busay hilltop restaurants with city views: Lantaw Native Restaurant (Filipino food, next to Temple of Leah), Top of Cebu, and The Cliff at Highlands de Busay."],
@@ -224,20 +220,20 @@ var FD=[
 [/Whale/,"Small eateries and resort restaurants are around Tan-awan and Oslob town. Bring snacks and cash because the watching area is busy in the morning."],
 [/Tumalog/,"Expect only basic snacks and drinks near the falls. Full meals are back in Oslob town."],
 [/Oslob or Badian/,"Badian has small restaurants and grill stalls along the highway (Budie's Point Badian is a popular listing). Bring cash."],
-[/Kawasan/,"Food stalls near the entrance sell grilled snacks. The resort at the base serves meals, but prices may not be fixed, so agree on prices first or bring your own food. Badian town, about 6 km away, has markets."],
+[/Kawasan/,"Food stalls near the entrance sell grilled snacks. The resort at the base serves meals, but prices may not be fixed, so agree on prices first or bring your own food. Badian town, about 6 km away, has more options."],
 [/Back to Mactan/,"On the way back, stop at Carcar Public Market for lechon and chicharon to take home."],
 [/Pasalubong/,"Taboan Public Market in Cebu City is known for dried fish and Cebu pasalubong. In Mactan, look in Mactan Newtown shops."],
 [/breakfast/i,"Many cafes and carinderias in Basak and Lapu-Lapu serve tapsilog and coffee."],
 [/Land at/,"Most sit-down restaurants will be closed by the time you reach the hotel. Order through a food delivery app or buy snacks at a convenience store."],
 [/Wake up|Grab to Mactan/,"Pack a snack the night before. Food outlets at the airport may be limited that early."]];
 var TR=[
-[/Seafood lunch|Last lunch|Early dinner/,"Hidden Star Bar and Restaurant at Mactan Grand Golden Hotel, a new glass-dome dining spot. DIP Nikkei at Sheraton Cebu Mactan Resort (Japanese-Peruvian) is in the 2026 Michelin Guide Cebu list, good for a special dinner."],
+[/Seafood lunch|Last lunch|Early dinner/,"Hidden Star Bar and Restaurant at Mactan Grand Golden Hotel, a new glass-dome dining spot. DIP Nikkei at Sheraton Cebu Mactan Resort (Japanese-Peruvian) is also a strong candidate."],
 [/Punta|Sunset/,"DIP Nikkei at Sheraton Cebu Mactan Resort, Punta Engaño Road, is in the 2026 Michelin Guide Cebu list. Reserve ahead."],
 [/Cross|Basilica/,"Abli on A. Climaco St., Cebu City, is in the 2026 Michelin Guide Cebu list and known for its Morta, a twist on the Argao torta."],
-[/lechon/i,"2026 Michelin Bib Gourmand picks in Cebu City: Pares Batchoy Food House (batchoy, stuffed bangus), Esmen (market-side linarang fish soup, over 60 years old), Abaseria Deli & Cafe (humba, sinigang pasayan) and CUR8 (lunch set). Check each address first."],
-[/Temple of Leah/,"Lasa on Roosevelt Drive, Busay, is a 2026 Michelin Bib Gourmand pick (crispy pata, shrimp kinilaw)."],
-[/Sirao|Tops/,"La Chimenea is a newer garden restaurant inside Terrazas de Flores, Malubog, Busay (Tuesday to Sunday, 3 PM to 11 PM per its listing)."],
-[/IT Park|Ayala/,"Sialo in Kasambagan, Cebu City, has only 16 seats and is in the 2026 Michelin Guide Cebu list, so book well ahead. The Pig & Palm (Bib Gourmand) is known for its confit pork belly."]];
+[/lechon/i,"2026 Michelin Bib Gourmand picks in Cebu City: Pares Batchoy Food House, Esmen, and Abaseria Deli & Cafe."],
+[/Temple of Leah/,"Lasa on Roosevelt Drive, Busay, is a 2026 Michelin Bib Gourmand pick."],
+[/Sirao|Tops/,"La Chimenea is a newer garden restaurant inside Terrazas de Flores, Malubog, Busay."],
+[/IT Park|Ayala/,"Sialo in Kasambagan, Cebu City, is in the 2026 Michelin Guide Cebu list, and The Pig & Palm is a well-known Bib Gourmand pick."]];
 function pick(L,n){for(var i=0;i<L.length;i++)if(L[i][0].test(n))return L[i][1];return""}
 function peso(n){return "₱"+n.toLocaleString("en-US")}
 function render(k){
@@ -247,8 +243,11 @@ var tot=d.tr[0];d.s.forEach(function(x){x.c.forEach(function(p){tot+=p[1]})});gr
 h+='<article class="day">'+banner(d.th)+'<h2>'+d.h+'</h2><p class="theme">'+esc(d.th)+'</p><ul>';
 d.s.forEach(function(s,si){var it=items(s.n);var e=tv[si],eat=pick(FD,s.n),hot=pick(TR,s.n);
 var cost=s.c.length?s.c.map(function(p){return p[0]+" <b>"+peso(p[1])+"</b>"}).join(" · "):"<b>Free</b>";
-h+='<li><span class="t">'+esc(s.t)+'</span>'+icon(s.n)+'<span><span class="n">'+esc(s.n)+'</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it[0][0]+" Cebu")+'">Map</a>'+(s.b?'<br><span class="b">'+esc(s.b)+'</span>':'')+(e?'<div class="tv"><b>Travel:</b> about '+km(e[0])+', '+esc(e[1])+' from '+esc(e[2])+'.'+(e[3]?' '+esc(e[3]):'')+'</div>':'')+'<div class="cost">'+cost+(s.note?'<span class="cn">'+esc(s.note)+'</span>':'')+'</div><div class="gal" data-q="'+qa(JSON.stringify(it))+'"></div>'+(eat?'<div class="eat"><b>Eat nearby:</b> '+esc(eat)+'</div>':'')+(hot?'<div class="hot"><b>Trending now:</b> '+esc(hot)+'</div>':'')+'</span></li>'});
-h+='</ul><div class="dayfoot"><div>Transport for the day: <b>'+peso(d.tr[0])+'</b> per person<span class="cn">'+esc(d.tr[1])+'</span></div><div>Road distance for the day: <b>about '+km(Math.round(dk))+'</b></div><div>Road time for the day: <b>'+esc(TT[d.h]||"")+'</b></div><div class="dt">Day total: about '+peso(tot)+' per person</div></div></article>'});
+h+='<li><span class="t">'+esc(s.t)+'</span>'+icon(s.n)+'<span><span class="n">'+esc(s.n)+'</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.n+' Cebu')+'">Map</a><br><span class="b">'+esc(s.b)+'</span><span class="cost">'+cost+'</span>';
+if(eat){h+='<div class="eat">'+esc(eat)+'</div>';}if(hot){h+='<div class="hot">'+esc(hot)+'</div>';}if(e){h+='<div class="tv">'+esc(e[1])+' · '+esc(e[2])+'</div>';}h+='</span></li>';
+});
+h+='</ul><div class="dayfoot"><div>Transport for the day: <b>'+peso(d.tr[0])+'</b> per person<span class="cn">'+esc(d.tr[1])+'</span></div><div>Road distance for the day: <b>about '+km(Math.round(dk))+'</b></div></div></article>';
+});
 document.getElementById("sum").innerHTML='<b>Trip total: about '+peso(grand)+' per person</b> for Sept 23-28, without hotel and airfare.';
 document.getElementById("out").innerHTML=h;photos();
 ["3","4"].forEach(function(n){document.getElementById("t"+n).setAttribute("aria-selected",String(n==k))});
@@ -257,7 +256,6 @@ try{localStorage.setItem("cebuTab",k)}catch(e){}
 document.getElementById("t3").onclick=function(){render(3)};
 document.getElementById("t4").onclick=function(){render(4)};
 var st=3;try{st=+localStorage.getItem("cebuTab")||3}catch(e){}
-
 render(4);
 </script>
 </body>
