@@ -33,34 +33,11 @@ li{display:grid;grid-template-columns:70px 34px 1fr;gap:10px;align-items:start;p
 .ic{width:34px;height:34px;color:var(--sea)}.ic *{vector-effect:non-scaling-stroke}
 .cost{margin-top:6px;font-size:.88rem;background:var(--bg);border-radius:8px;padding:6px 10px}
 .cn{display:block;color:var(--mute);font-size:.78rem;margin-top:2px}
+.eat{margin-top:6px;font-size:.88rem;border-left:4px solid var(--mango);padding:4px 10px;background:var(--bg);border-radius:0 8px 8px 0}
 .dayfoot{margin:6px 0 12px;padding-top:10px;border-top:2px solid var(--ink);font-size:.92rem}
 .dayfoot .dt{font-weight:800;font-size:1.05rem;margin-top:6px}
 .sum{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin:0 0 20px}
 .sum small{display:block;color:var(--mute);margin-top:4px}
-.mine{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:26px}
-.mine h2{margin:0 0 6px;font-size:1.3rem}
-.mine .hint{color:var(--mute);font-size:.88rem;margin:0 0 12px}
-.row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.mine select{font:inherit;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:100%;flex:1 1 220px}
-.btn{font:inherit;font-weight:600;cursor:pointer;border:2px solid var(--ink);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;display:inline-block}
-.btn.alt{background:none;color:var(--ink)}
-.btn:focus-within,.btn:focus-visible{outline:3px solid var(--hib);outline-offset:2px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
-.grid .it{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
-.grid img{display:block;width:100%;height:120px;object-fit:cover;cursor:zoom-in}
-.grid .cap{font-size:.75rem;padding:4px 6px;color:var(--mute);min-height:2.4em}
-.grid .act{display:flex;gap:4px;padding:0 6px 6px}
-.grid .act button{font:inherit;font-size:.78rem;flex:1;padding:4px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
-.empty{color:var(--mute);font-size:.9rem}
-.lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px))}
-.lb[hidden]{display:none}
-.lb img{max-width:100%;max-height:100%;border-radius:8px}
-.gal{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.ph{display:block;flex:1 1 180px;max-width:300px;text-decoration:none;color:var(--ink)}
-.ph img,.ph .fb{display:block;width:100%;height:130px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
-.ph .fb{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;background:linear-gradient(135deg,#BFE6EE,#CDEBDD);color:#0B2E3A;font-weight:600;font-size:.9rem}
-.ph:hover img,.ph:hover .fb{filter:brightness(1.06)}
-.ph small{display:block;color:var(--mute);font-size:.75rem;margin-top:2px}
 .map{font-size:.82rem;color:var(--sea);margin-left:8px;white-space:nowrap}
 .banner{display:block;width:100%;height:auto;border-radius:10px;margin:0 0 12px}
 .tips li{display:block}
@@ -75,16 +52,12 @@ footer{margin-top:22px;color:var(--mute);font-size:.85rem}
 html{-webkit-text-size-adjust:100%}
 body{font-size:16px;-webkit-tap-highlight-color:transparent}
 a{color:var(--sea)}
-.btn{min-height:44px;display:inline-flex;align-items:center}
-.mine select{font-size:16px;min-height:44px}
-.grid .act button{min-height:40px}
 .map{display:inline-block;padding:10px 8px;margin-left:0}
 .dn{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;gap:8px;overflow-x:auto;padding:8px 0;margin:0 0 14px;background:var(--bg);-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .dn::-webkit-scrollbar{display:none}
 .dn a{flex:0 0 auto;min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:999px;border:2px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;background:var(--card)}
 .day{scroll-margin-top:72px}
 a:focus-visible,select:focus-visible{outline:3px solid var(--hib);outline-offset:2px}
-.lbx{position:absolute;top:calc(8px + env(safe-area-inset-top,0px));right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#000;font-size:1.6rem;line-height:1;cursor:pointer}
 @media (max-width:520px){
 .wrap{padding:16px 14px 48px}
 .day{padding:14px 12px 6px}
@@ -92,9 +65,6 @@ li{grid-template-columns:34px 1fr;column-gap:10px}
 li>.t{grid-column:2;grid-row:1}
 li>.ic{grid-column:1;grid-row:1 / span 2}
 li>span:last-child{grid-column:2;grid-row:2}
-.ph{max-width:none;flex-basis:100%}
-.ph img,.ph .fb{height:170px}
-.grid{grid-template-columns:repeat(2,1fr)}
 }
 @media print{.dn{display:none}.tabs{display:none}.day{break-inside:avoid}}
 </style>
@@ -110,22 +80,11 @@ li>span:last-child{grid-column:2;grid-row:2}
 <div class="sum"><div id="sum"></div><small>Prices are estimates per person, checked September 2026, and can change. Assumes 4 travelers sharing one car or van with driver. Fewer people means a higher transport cost each. Confirm fees on arrival and carry small bills.</small></div>
 <nav class="dn" id="dn" aria-label="Jump to a day"></nav>
 <div id="out"></div>
-<section class="mine" id="mine">
-<h2>My trip photos</h2>
-<p class="hint">Take photos during the trip and they are saved on this phone or computer, in this browser only. Tap Save to keep a copy in your device photos or downloads.</p>
-<div class="row"><select id="tag" aria-label="Where was this photo taken"></select></div>
-<div class="row">
-<label class="btn">Take photo<input id="cam" type="file" accept="image/*" capture="environment" hidden></label>
-<label class="btn alt">Add from gallery<input id="pick" type="file" accept="image/*" multiple hidden></label>
-</div>
-<div id="grid" class="grid"></div>
-<p class="hint" id="gmsg"></p>
-</section>
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><button class="lbx" type="button" aria-label="Close photo">×</button><img id="lbimg" alt="Trip photo"></div>
 <section class="tips">
 <h2>Good to know</h2>
 <ul>
-<li><b>Using this on your phone:</b> Save the file to your phone or Google Drive, then open it in Chrome or Safari. Photos and maps need internet. Allow camera access when asked.</li>
+<li><b>Using this on your phone:</b> Save the file to your phone or Google Drive, then open it in Chrome or Safari. Map links need internet.</li>
+<li><b>Food spots:</b> Suggestions come from online listings checked in September 2026. Hours, menus and prices change, so check opening times before you go.</li>
 <li><b>Late arrival:</b> Tell the condo about your 10:00 PM landing so someone can check you in. Pre-book Grab or use the airport taxi queue.</li>
 <li><b>Early flight:</b> For a 6:00 AM flight, leave the hotel by 3:30 AM. Book the ride the night before, and pack before you sleep on Sept 27.</li>
 <li><b>Getting around:</b> Grab works in Mactan and Cebu City. For the Oslob day, hire a private van or car with a driver and confirm the rate first.</li>
@@ -136,7 +95,7 @@ li>span:last-child{grid-column:2;grid-row:2}
 <li><b>Weather:</b> Rain can cancel boat trips, so check the forecast the day before.</li>
 </ul>
 </section>
-<footer>Times are suggestions. Adjust to your flight and pace. Photos load from Wikipedia when you are online. If a photo does not load, tap its box to see photos on Google.</footer>
+<footer>Times are suggestions. Adjust to your flight and pace.</footer>
 </div>
 <script>
 var S=function(t,n,b,note,pairs){return{t:t,n:n,b:b||"",note:note||"",c:pairs||[]}};
@@ -208,26 +167,27 @@ var R=[
 [/Rest|swim|hotel/,[["Mactan Island","Lapu-Lapu City"]]]];
 function items(n){for(var i=0;i<R.length;i++)if(R[i][0].test(n))return R[i][1];return[["Cebu"]]}
 function qa(x){return esc(x).replace(/"/g,"&quot;")}
-var cache={};
-function fetchImg(q){
-return cache[q]=cache[q]||fetch("https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=6&gsrsearch="+encodeURIComponent(q)+"&prop=pageimages|info&piprop=thumbnail&pithumbsize=500&inprop=url").then(function(r){return r.json()}).then(function(j){
-var pg=Object.values((j.query||{}).pages||{}).filter(function(x){return x.thumbnail}).sort(function(a,b){return a.index-b.index})[0];
-return pg?{img:pg.thumbnail.source,url:pg.fullurl,t:pg.title}:null})}
-function get(alts,i){
-if(i>=alts.length)return Promise.resolve(null);
-return fetchImg(alts[i]).then(function(o){return o||get(alts,i+1)}).catch(function(){return get(alts,i+1)})}
-function photos(){
-document.querySelectorAll(".gal").forEach(function(g){
-JSON.parse(g.getAttribute("data-q")).forEach(function(alts){
-var a=document.createElement("a");a.className="ph";a.target="_blank";a.rel="noopener";
-a.href="https://www.google.com/search?tbm=isch&q="+encodeURIComponent(alts[0]+" Cebu");
-a.innerHTML='<span class="fb">'+esc(alts[0])+'</span><small>Tap for photos</small>';
-g.appendChild(a);
-get(alts,0).then(function(o){
-if(!o||!a.isConnected)return;
-a.href=o.url;
-a.innerHTML='<img alt="Photo: '+qa(o.t)+'"><small>'+esc(o.t)+' (Wikipedia)</small>';
-a.querySelector("img").src=o.img}).catch(function(){})})})}
+var FD=[
+[/Shrine/,"Local carinderias and grill stalls in Lapu-Lapu City serve meals for about ₱80-150. For a sit-down seafood meal, Maribago is a short ride away (Maribago Grill, Fiesta Bay Seafood Restaurant)."],
+[/Island hopping/,"Lunch is often included on the boat tour, so ask before you book. Waterfront seafood restaurants near the Cordova and Punta Engaño ports are good for a meal after the trip."],
+[/Seafood lunch|Last lunch|Early dinner/,"Try Maribago Grill or Fiesta Bay Seafood Restaurant. In Mactan Newtown, paluto spots let you pick market-fresh seafood and pay a cooking fee (about ₱500-1,000 for two)."],
+[/Punta|Sunset/,"The Punta Engaño Road resort strip has Cowrie Cove (seafood, Shangri-La) and Hola España (Spanish, Abaca resort). Resort dining runs about ₱800-1,500 per person."],
+[/Cross|Basilica/,"Colon Street is a short walk away: pungko-pungko street food by day, BBQ and night-market snacks at night. Larsian BBQ at Fuente Osmeña, a short ride away, is known for grilled meat and puso."],
+[/Fort/,"Plaza Independencia and Colon Street are a short walk. Look for street food and lechon in the downtown area."],
+[/lechon/i,"Popular lechon spots: Rico's Lechon, House of Lechon, Tatang's Lechon Belly, Ayer's and Zubuchon."],
+[/Temple of Leah/,"Busay hilltop restaurants with city views: Lantaw Native Restaurant (Filipino food, next to Temple of Leah), Top of Cebu, and The Cliff at Highlands de Busay."],
+[/Sirao|Tops/,"Along Tops Road: La Parisienne Sky (formerly La Vie in the Sky), Top of Cebu, and The Cliff at Highlands de Busay. Go near sunset for city lights."],
+[/IT Park|Ayala/,"Sugbo Mercado at IT Park is a popular food market with about 20 vendors, usually open Wednesday to Sunday. Check the day first. Ayala Center Cebu has restaurants and food courts."],
+[/Whale/,"Small eateries and resort restaurants are around Tan-awan and Oslob town. Bring snacks and cash because the watching area is busy in the morning."],
+[/Tumalog/,"Expect only basic snacks and drinks near the falls. Full meals are back in Oslob town."],
+[/Oslob or Badian/,"Badian has small restaurants and grill stalls along the highway (Budie's Point Badian is a popular listing). Bring cash."],
+[/Kawasan/,"Food stalls near the entrance sell grilled snacks. The resort at the base serves meals, but prices may not be fixed, so agree on prices first or bring your own food. Badian town, about 6 km away, has markets."],
+[/Back to Mactan/,"On the way back, stop at Carcar Public Market for lechon and chicharon to take home."],
+[/Pasalubong/,"Taboan Public Market in Cebu City is known for dried fish and Cebu pasalubong. In Mactan, look in Mactan Newtown shops."],
+[/breakfast/i,"Many cafes and carinderias in Basak and Lapu-Lapu serve tapsilog and coffee."],
+[/Land at/,"Most sit-down restaurants will be closed by the time you reach the hotel. Order through a food delivery app or buy snacks at a convenience store."],
+[/Wake up|Grab to Mactan/,"Pack a snack the night before. Food outlets at the airport may be limited that early."]];
+function foodFor(n){for(var i=0;i<FD.length;i++)if(FD[i][0].test(n))return FD[i][1];return""}
 function peso(n){return "₱"+n.toLocaleString("en-US")}
 function render(k){
 var h="",grand=0;D[k].forEach(function(d,ix){
@@ -235,10 +195,10 @@ var tot=d.tr[0];d.s.forEach(function(x){x.c.forEach(function(p){tot+=p[1]})});gr
 h+='<article class="day" id="d'+ix+'">'+banner(d.th)+'<h2>'+d.h+'</h2><p class="theme">'+esc(d.th)+'</p><ul>';
 d.s.forEach(function(s){var it=items(s.n);
 var cost=s.c.length?s.c.map(function(p){return p[0]+" <b>"+peso(p[1])+"</b>"}).join(" · "):"<b>Free</b>";
-h+='<li><span class="t">'+esc(s.t)+'</span>'+icon(s.n)+'<span><span class="n">'+esc(s.n)+'</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it[0][0]+" Cebu")+'">Map</a>'+(s.b?'<br><span class="b">'+esc(s.b)+'</span>':'')+'<div class="cost">'+cost+(s.note?'<span class="cn">'+esc(s.note)+'</span>':'')+'</div><div class="gal" data-q="'+qa(JSON.stringify(it))+'"></div></span></li>'});
+h+='<li><span class="t">'+esc(s.t)+'</span>'+icon(s.n)+'<span><span class="n">'+esc(s.n)+'</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it[0][0]+" Cebu")+'">Map</a>'+(s.b?'<br><span class="b">'+esc(s.b)+'</span>':'')+'<div class="cost">'+cost+(s.note?'<span class="cn">'+esc(s.note)+'</span>':'')+'</div>'+(foodFor(s.n)?'<div class="eat"><b>Eat nearby:</b> '+esc(foodFor(s.n))+'</div>':'')+'</span></li>'});
 h+='</ul><div class="dayfoot"><div>Transport for the day: <b>'+peso(d.tr[0])+'</b> per person<span class="cn">'+esc(d.tr[1])+'</span></div><div class="dt">Day total: about '+peso(tot)+' per person</div></div></article>'});
 document.getElementById("sum").innerHTML='<b>Trip total: about '+peso(grand)+' per person</b> for Sept 23-28, without hotel and airfare.';
-document.getElementById("dn").innerHTML=D[k].map(function(d,i){return '<a href="#d'+i+'">'+d.h+'</a>'}).join("");document.getElementById("out").innerHTML=h;photos();
+document.getElementById("dn").innerHTML=D[k].map(function(d,i){return '<a href="#d'+i+'">'+d.h+'</a>'}).join("");document.getElementById("out").innerHTML=h;
 ["3","4"].forEach(function(n){document.getElementById("t"+n).setAttribute("aria-selected",String(n==k))});
 try{localStorage.setItem("cebuTab",k)}catch(e){}
 }
@@ -246,44 +206,6 @@ document.getElementById("t3").onclick=function(){render(3)};
 document.getElementById("t4").onclick=function(){render(4)};
 var st=3;try{st=+localStorage.getItem("cebuTab")||3}catch(e){}
 
-var db=null,mem=[],urls=[];
-function openDB(){return new Promise(function(res){try{var r=indexedDB.open("cebuTrip",1);r.onupgradeneeded=function(){r.result.createObjectStore("p",{keyPath:"id",autoIncrement:true})};r.onsuccess=function(){db=r.result;res()};r.onerror=function(){res()}}catch(e){res()}})}
-function allP(){return new Promise(function(res){if(!db)return res(mem.slice());var q=db.transaction("p").objectStore("p").getAll();q.onsuccess=function(){res(q.result)};q.onerror=function(){res([])}})}
-function addP(rec){return new Promise(function(res){if(!db){rec.id=Date.now()+Math.random();mem.push(rec);return res()}var t=db.transaction("p","readwrite");t.objectStore("p").add(rec);t.oncomplete=res;t.onerror=res})}
-function delP(id){return new Promise(function(res){if(!db){mem=mem.filter(function(x){return x.id!==id});return res()}var t=db.transaction("p","readwrite");t.objectStore("p").delete(id);t.oncomplete=res;t.onerror=res})}
-function shrink(f){return new Promise(function(res){var im=new Image(),u=URL.createObjectURL(f);im.onload=function(){var sc=Math.min(1,1600/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext("2d").drawImage(im,0,0,c.width,c.height);c.toBlob(function(b){URL.revokeObjectURL(u);res(b||f)},"image/jpeg",0.85)};im.onerror=function(){res(f)};im.src=u})}
-function saveFile(b,name){var u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000)}
-function showG(){
-allP().then(function(list){
-urls.forEach(function(u){URL.revokeObjectURL(u)});urls=[];
-var g=document.getElementById("grid");g.innerHTML="";
-if(!list.length){g.innerHTML='<p class="empty">No photos yet. Tap Take photo to add your first one.</p>';return}
-list.sort(function(a,b){return b.ts-a.ts}).forEach(function(r){
-var u=URL.createObjectURL(r.blob);urls.push(u);
-var d=document.createElement("div");d.className="it";
-d.innerHTML='<img alt="Trip photo"><div class="cap"></div><div class="act"><button type="button">Save</button><button type="button">Delete</button></div>';
-d.querySelector("img").src=u;
-d.querySelector(".cap").textContent=(r.tag||"General")+" · "+new Date(r.ts).toLocaleString([], {month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
-d.querySelector("img").onclick=function(){document.getElementById("lbimg").src=u;document.getElementById("lb").hidden=false};
-var bs=d.querySelectorAll("button");
-bs[0].onclick=function(){saveFile(r.blob,"cebu-trip-"+new Date(r.ts).toISOString().slice(0,19).replace(/[:T]/g,"-")+".jpg")};
-bs[1].onclick=function(){if(confirm("Delete this photo?"))delP(r.id).then(showG)};
-g.appendChild(d)})})}
-function addFiles(files){
-var tag=document.getElementById("tag").value,arr=Array.prototype.slice.call(files);
-arr.reduce(function(p,f){return p.then(function(){return shrink(f)}).then(function(b){return addP({blob:b,tag:tag,ts:Date.now()})})},Promise.resolve()).then(showG)}
-function initGallery(){
-var seen={},sel=document.getElementById("tag");
-sel.innerHTML='<option value="General">General (no place)</option>';
-D[4].forEach(function(d){d.s.forEach(function(x){if(!seen[x.n]&&/[A-Za-z]/.test(x.n)&&x.c.length+x.note.length>=0&&!/^(Wake|Flight|Land|Pack|Leave|Back)/.test(x.n)){seen[x.n]=1;var o=document.createElement("option");o.value=x.n;o.textContent=x.n;sel.appendChild(o)}})});
-["cam","pick"].forEach(function(id){var el=document.getElementById(id);el.onchange=function(){if(el.files.length)addFiles(el.files);el.value=""}});
-document.getElementById("lb").onclick=function(){this.hidden=true};
-document.addEventListener("keydown",function(e){if(e.key==="Escape")document.getElementById("lb").hidden=true});
-openDB().then(function(){
-if(!db)document.getElementById("gmsg").textContent="This browser cannot store photos between visits. Photos will stay only until you close the page, so tap Save on each one.";
-try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
-showG()})}
-initGallery();
 render(4);
 </script>
 </body>
