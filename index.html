@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E6E7E">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>Cebu Trip Itinerary: Saekyung Condominium, Lapu-Lapu City</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <style>
@@ -69,7 +72,31 @@ li{display:grid;grid-template-columns:70px 34px 1fr;gap:10px;align-items:start;p
 .tips li{display:block;border-top:1px solid rgba(255,255,255,.18);padding:8px 0;font-size:.95rem}
 .tips li:first-child{border-top:0}
 footer{margin-top:22px;color:var(--mute);font-size:.85rem}
-@media print{.tabs{display:none}.day{break-inside:avoid}}
+html{-webkit-text-size-adjust:100%}
+body{font-size:16px;-webkit-tap-highlight-color:transparent}
+a{color:var(--sea)}
+.btn{min-height:44px;display:inline-flex;align-items:center}
+.mine select{font-size:16px;min-height:44px}
+.grid .act button{min-height:40px}
+.map{display:inline-block;padding:10px 8px;margin-left:0}
+.dn{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;gap:8px;overflow-x:auto;padding:8px 0;margin:0 0 14px;background:var(--bg);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.dn::-webkit-scrollbar{display:none}
+.dn a{flex:0 0 auto;min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:999px;border:2px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;background:var(--card)}
+.day{scroll-margin-top:72px}
+a:focus-visible,select:focus-visible{outline:3px solid var(--hib);outline-offset:2px}
+.lbx{position:absolute;top:calc(8px + env(safe-area-inset-top,0px));right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#000;font-size:1.6rem;line-height:1;cursor:pointer}
+@media (max-width:520px){
+.wrap{padding:16px 14px 48px}
+.day{padding:14px 12px 6px}
+li{grid-template-columns:34px 1fr;column-gap:10px}
+li>.t{grid-column:2;grid-row:1}
+li>.ic{grid-column:1;grid-row:1 / span 2}
+li>span:last-child{grid-column:2;grid-row:2}
+.ph{max-width:none;flex-basis:100%}
+.ph img,.ph .fb{height:170px}
+.grid{grid-template-columns:repeat(2,1fr)}
+}
+@media print{.dn{display:none}.tabs{display:none}.day{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -81,6 +108,7 @@ footer{margin-top:22px;color:var(--mute);font-size:.85rem}
 <button role="tab" id="t4" aria-selected="false">4 days</button>
 </div>
 <div class="sum"><div id="sum"></div><small>Prices are estimates per person, checked September 2026, and can change. Assumes 4 travelers sharing one car or van with driver. Fewer people means a higher transport cost each. Confirm fees on arrival and carry small bills.</small></div>
+<nav class="dn" id="dn" aria-label="Jump to a day"></nav>
 <div id="out"></div>
 <section class="mine" id="mine">
 <h2>My trip photos</h2>
@@ -93,10 +121,11 @@ footer{margin-top:22px;color:var(--mute);font-size:.85rem}
 <div id="grid" class="grid"></div>
 <p class="hint" id="gmsg"></p>
 </section>
-<div class="lb" id="lb" hidden><img id="lbimg" alt="Trip photo"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><button class="lbx" type="button" aria-label="Close photo">×</button><img id="lbimg" alt="Trip photo"></div>
 <section class="tips">
 <h2>Good to know</h2>
 <ul>
+<li><b>Using this on your phone:</b> Save the file to your phone or Google Drive, then open it in Chrome or Safari. Photos and maps need internet. Allow camera access when asked.</li>
 <li><b>Late arrival:</b> Tell the condo about your 10:00 PM landing so someone can check you in. Pre-book Grab or use the airport taxi queue.</li>
 <li><b>Early flight:</b> For a 6:00 AM flight, leave the hotel by 3:30 AM. Book the ride the night before, and pack before you sleep on Sept 27.</li>
 <li><b>Getting around:</b> Grab works in Mactan and Cebu City. For the Oslob day, hire a private van or car with a driver and confirm the rate first.</li>
@@ -201,15 +230,15 @@ a.innerHTML='<img alt="Photo: '+qa(o.t)+'"><small>'+esc(o.t)+' (Wikipedia)</smal
 a.querySelector("img").src=o.img}).catch(function(){})})})}
 function peso(n){return "₱"+n.toLocaleString("en-US")}
 function render(k){
-var h="",grand=0;D[k].forEach(function(d){
+var h="",grand=0;D[k].forEach(function(d,ix){
 var tot=d.tr[0];d.s.forEach(function(x){x.c.forEach(function(p){tot+=p[1]})});grand+=tot;
-h+='<article class="day">'+banner(d.th)+'<h2>'+d.h+'</h2><p class="theme">'+esc(d.th)+'</p><ul>';
+h+='<article class="day" id="d'+ix+'">'+banner(d.th)+'<h2>'+d.h+'</h2><p class="theme">'+esc(d.th)+'</p><ul>';
 d.s.forEach(function(s){var it=items(s.n);
 var cost=s.c.length?s.c.map(function(p){return p[0]+" <b>"+peso(p[1])+"</b>"}).join(" · "):"<b>Free</b>";
 h+='<li><span class="t">'+esc(s.t)+'</span>'+icon(s.n)+'<span><span class="n">'+esc(s.n)+'</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it[0][0]+" Cebu")+'">Map</a>'+(s.b?'<br><span class="b">'+esc(s.b)+'</span>':'')+'<div class="cost">'+cost+(s.note?'<span class="cn">'+esc(s.note)+'</span>':'')+'</div><div class="gal" data-q="'+qa(JSON.stringify(it))+'"></div></span></li>'});
 h+='</ul><div class="dayfoot"><div>Transport for the day: <b>'+peso(d.tr[0])+'</b> per person<span class="cn">'+esc(d.tr[1])+'</span></div><div class="dt">Day total: about '+peso(tot)+' per person</div></div></article>'});
 document.getElementById("sum").innerHTML='<b>Trip total: about '+peso(grand)+' per person</b> for Sept 23-28, without hotel and airfare.';
-document.getElementById("out").innerHTML=h;photos();
+document.getElementById("dn").innerHTML=D[k].map(function(d,i){return '<a href="#d'+i+'">'+d.h+'</a>'}).join("");document.getElementById("out").innerHTML=h;photos();
 ["3","4"].forEach(function(n){document.getElementById("t"+n).setAttribute("aria-selected",String(n==k))});
 try{localStorage.setItem("cebuTab",k)}catch(e){}
 }
