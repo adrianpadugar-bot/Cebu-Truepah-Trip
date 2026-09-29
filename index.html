@@ -34,6 +34,24 @@ li{display:grid;grid-template-columns:70px 34px 1fr;gap:10px;align-items:start;p
 .dayfoot .dt{font-weight:800;font-size:1.05rem;margin-top:6px}
 .sum{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin:0 0 20px}
 .sum small{display:block;color:var(--mute);margin-top:4px}
+.mine{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:26px}
+.mine h2{margin:0 0 6px;font-size:1.3rem}
+.mine .hint{color:var(--mute);font-size:.88rem;margin:0 0 12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.mine select{font:inherit;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:100%;flex:1 1 220px}
+.btn{font:inherit;font-weight:600;cursor:pointer;border:2px solid var(--ink);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;display:inline-block}
+.btn.alt{background:none;color:var(--ink)}
+.btn:focus-within,.btn:focus-visible{outline:3px solid var(--hib);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.grid .it{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.grid img{display:block;width:100%;height:120px;object-fit:cover;cursor:zoom-in}
+.grid .cap{font-size:.75rem;padding:4px 6px;color:var(--mute);min-height:2.4em}
+.grid .act{display:flex;gap:4px;padding:0 6px 6px}
+.grid .act button{font:inherit;font-size:.78rem;flex:1;padding:4px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.empty{color:var(--mute);font-size:.9rem}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px))}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:100%;border-radius:8px}
 .gal{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .ph{display:block;flex:1 1 180px;max-width:300px;text-decoration:none;color:var(--ink)}
 .ph img,.ph .fb{display:block;width:100%;height:130px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
@@ -64,6 +82,18 @@ footer{margin-top:22px;color:var(--mute);font-size:.85rem}
 </div>
 <div class="sum"><div id="sum"></div><small>Prices are estimates per person, checked September 2026, and can change. Assumes 4 travelers sharing one car or van with driver. Fewer people means a higher transport cost each. Confirm fees on arrival and carry small bills.</small></div>
 <div id="out"></div>
+<section class="mine" id="mine">
+<h2>My trip photos</h2>
+<p class="hint">Take photos during the trip and they are saved on this phone or computer, in this browser only. Tap Save to keep a copy in your device photos or downloads.</p>
+<div class="row"><select id="tag" aria-label="Where was this photo taken"></select></div>
+<div class="row">
+<label class="btn">Take photo<input id="cam" type="file" accept="image/*" capture="environment" hidden></label>
+<label class="btn alt">Add from gallery<input id="pick" type="file" accept="image/*" multiple hidden></label>
+</div>
+<div id="grid" class="grid"></div>
+<p class="hint" id="gmsg"></p>
+</section>
+<div class="lb" id="lb" hidden><img id="lbimg" alt="Trip photo"></div>
 <section class="tips">
 <h2>Good to know</h2>
 <ul>
@@ -186,6 +216,45 @@ try{localStorage.setItem("cebuTab",k)}catch(e){}
 document.getElementById("t3").onclick=function(){render(3)};
 document.getElementById("t4").onclick=function(){render(4)};
 var st=3;try{st=+localStorage.getItem("cebuTab")||3}catch(e){}
+
+var db=null,mem=[],urls=[];
+function openDB(){return new Promise(function(res){try{var r=indexedDB.open("cebuTrip",1);r.onupgradeneeded=function(){r.result.createObjectStore("p",{keyPath:"id",autoIncrement:true})};r.onsuccess=function(){db=r.result;res()};r.onerror=function(){res()}}catch(e){res()}})}
+function allP(){return new Promise(function(res){if(!db)return res(mem.slice());var q=db.transaction("p").objectStore("p").getAll();q.onsuccess=function(){res(q.result)};q.onerror=function(){res([])}})}
+function addP(rec){return new Promise(function(res){if(!db){rec.id=Date.now()+Math.random();mem.push(rec);return res()}var t=db.transaction("p","readwrite");t.objectStore("p").add(rec);t.oncomplete=res;t.onerror=res})}
+function delP(id){return new Promise(function(res){if(!db){mem=mem.filter(function(x){return x.id!==id});return res()}var t=db.transaction("p","readwrite");t.objectStore("p").delete(id);t.oncomplete=res;t.onerror=res})}
+function shrink(f){return new Promise(function(res){var im=new Image(),u=URL.createObjectURL(f);im.onload=function(){var sc=Math.min(1,1600/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext("2d").drawImage(im,0,0,c.width,c.height);c.toBlob(function(b){URL.revokeObjectURL(u);res(b||f)},"image/jpeg",0.85)};im.onerror=function(){res(f)};im.src=u})}
+function saveFile(b,name){var u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000)}
+function showG(){
+allP().then(function(list){
+urls.forEach(function(u){URL.revokeObjectURL(u)});urls=[];
+var g=document.getElementById("grid");g.innerHTML="";
+if(!list.length){g.innerHTML='<p class="empty">No photos yet. Tap Take photo to add your first one.</p>';return}
+list.sort(function(a,b){return b.ts-a.ts}).forEach(function(r){
+var u=URL.createObjectURL(r.blob);urls.push(u);
+var d=document.createElement("div");d.className="it";
+d.innerHTML='<img alt="Trip photo"><div class="cap"></div><div class="act"><button type="button">Save</button><button type="button">Delete</button></div>';
+d.querySelector("img").src=u;
+d.querySelector(".cap").textContent=(r.tag||"General")+" · "+new Date(r.ts).toLocaleString([], {month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+d.querySelector("img").onclick=function(){document.getElementById("lbimg").src=u;document.getElementById("lb").hidden=false};
+var bs=d.querySelectorAll("button");
+bs[0].onclick=function(){saveFile(r.blob,"cebu-trip-"+new Date(r.ts).toISOString().slice(0,19).replace(/[:T]/g,"-")+".jpg")};
+bs[1].onclick=function(){if(confirm("Delete this photo?"))delP(r.id).then(showG)};
+g.appendChild(d)})})}
+function addFiles(files){
+var tag=document.getElementById("tag").value,arr=Array.prototype.slice.call(files);
+arr.reduce(function(p,f){return p.then(function(){return shrink(f)}).then(function(b){return addP({blob:b,tag:tag,ts:Date.now()})})},Promise.resolve()).then(showG)}
+function initGallery(){
+var seen={},sel=document.getElementById("tag");
+sel.innerHTML='<option value="General">General (no place)</option>';
+D[4].forEach(function(d){d.s.forEach(function(x){if(!seen[x.n]&&/[A-Za-z]/.test(x.n)&&x.c.length+x.note.length>=0&&!/^(Wake|Flight|Land|Pack|Leave|Back)/.test(x.n)){seen[x.n]=1;var o=document.createElement("option");o.value=x.n;o.textContent=x.n;sel.appendChild(o)}})});
+["cam","pick"].forEach(function(id){var el=document.getElementById(id);el.onchange=function(){if(el.files.length)addFiles(el.files);el.value=""}});
+document.getElementById("lb").onclick=function(){this.hidden=true};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")document.getElementById("lb").hidden=true});
+openDB().then(function(){
+if(!db)document.getElementById("gmsg").textContent="This browser cannot store photos between visits. Photos will stay only until you close the page, so tap Save on each one.";
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+showG()})}
+initGallery();
 render(4);
 </script>
 </body>
